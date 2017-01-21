@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="fr">
+    <title>Exercice Google Music</title>
+    <meta charset="utf-8" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Product+Sans" rel="stylesheet">
+    <link href="assets/css/material.deep_orange-red.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    
+    <script src="assets/js/material.min.js"></script>
+    <script src="assets/js/angular.min.js"></script>
+    <script src="ng-module.js"></script>
+</head>
+
+<body ng-app="playmusic">
+    <!-- Simple header with scrollable tabs. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <!-- Top row, always visible -->
+            <div class="mdl-layout__header-row custom-header__top-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Bibliothèque musicale</span>
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--align-left custom-searchbar">
+                    <label class="custom-searchbar__plain-label" for="searchbar-input"></label>
+                    <label class="mdl-button mdl-js-button mdl-button--icon custom-searchbar__button" for="searchbar-input">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="custom-searchbar__wrapper">
+                        <div class="custom-input-container">
+                            <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="mdl-textfield__input custom-input-container__input" type="text" name="sample" id="searchbar-input">
+                        </div>
+                        <div class="custom-label-container">
+                            <label class="mdl-textfield__label custom-label-container__label" for="searchbar-input">
+                                Rechercher
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">playlist_play</i>
+                            </button>
+                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">view_module</i>
+                            </button>
+                    <div class="custom-header__menu-separator">
+                        
+                    </div>
+                    <a href="">
+                        <span class="mdl-badge custom-header__badge" data-badge="1"></span>
+                    </a>
+                    <a class="mdl-navigation__link custom-header__user-icon" href=""></a>
+                </nav>
+            </div>
+            <!-- Tabs -->
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect custom-tab-bar">
+                <a href="#scroll-tab-1" class="mdl-layout__tab">Playlist</a>
+                <a href="#scroll-tab-2" class="mdl-layout__tab">Radios</a>
+                <a href="#scroll-tab-3" class="mdl-layout__tab">Artistes</a>
+                <a href="#scroll-tab-4" class="mdl-layout__tab is-active">Albums</a>
+                <a href="#scroll-tab-5" class="mdl-layout__tab">Titres</a>
+                <a href="#scroll-tab-6" class="mdl-layout__tab">Genres</a>
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation -->
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link mdl-layout__tab custom-header__link" href="">473 Albums</a>
+                    <a class="mdl-button mdl-js-button mdl-layout__tab custom-header__button">
+                        <i class="material-icons">shuffle</i> Lire en mode aléatoire
+                    </a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title custom-sidemenu__title"><strong>Google</strong> Play Music</span>
+        </div>
+        <main class="mdl-layout__content">
+            <section class="mdl-layout__tab-panel " id="scroll-tab-1">
+                <div class="page-content" >
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+                <div class="page-content">
+                    <!-- Your content goes here -->
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+                <div class="page-content">
+                    <!-- Your content goes here -->
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel is-active" id="scroll-tab-4">
+                <div class="page-content" ng-controller="AlbumsController as ctrl">
+                    <div class="mdl-card mdl-shadow--2dp custom-card"
+                         ng-repeat="album in ctrl.data.albums">
+
+                        <a class="mdl-card__title mdl-card--expand custom-card__title"  href="album"
+                             ng-style="{'background-image':'url(resources/albums/'+'{{album.cover}}'+')'}">
+                        </a>
+                        <div class="mdl-card__supporting-text custom-card__bottom">
+                            <b>{{album.name}}</b><br>{{album.artist}}
+                        <button ng-attr-id="custom-card__menu-button--{{$index}}" class="mdl-button mdl-js-button mdl-button--icon custom-card__menu-button">
+                            <i class="material-icons">more_vert</i>
+                        </button>
+                        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect custom-card__menu" 
+                            ng-attr-for="custom-card__menu-button--{{$index}}">
+                            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Ajouter l'album à la file d'attente</li>
+                            <li class="mdl-menu__item">Ajouter l'album à une playlist</li>
+                            <li disabled class="mdl-menu__item">Modifier les informations de l'album</li>
+                            <li class="mdl-menu__item">Télécharger l'album</li>
+                            <li class="mdl-menu__item">Supprimer l'album</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-5">
+                <div class="page-content">
+                    <!-- Your content goes here -->
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-6">
+                <div class="page-content">
+                    <!-- Your content goes here -->
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

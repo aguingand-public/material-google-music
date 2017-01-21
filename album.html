@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="fr">
+    <title>Exercice Google Music</title>
+    <meta charset="utf-8" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Product+Sans" rel="stylesheet">
+    <link href="assets/css/material.deep_orange-red.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    
+    <script src="assets/js/material.min.js"></script>
+    <script src="assets/js/angular.min.js"></script>
+    <script src="ng-module.js"></script>
+</head>
+
+<body ng-app="playmusic" ng-controller="AlbumPageController as ctrl">
+    <!-- Simple header with scrollable tabs. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header custom-layout-image" style="background-image:url('resources/artist.jpg')">
+        <header class="mdl-layout__header mdl-layout__header--transparent">
+            <!-- Top row, always visible -->
+            <div class="mdl-layout__header-row custom-header__top-row">
+                <!-- Title -->
+                <a href="index.html" class="mdl-layout-title">Bibliothèque musicale</a>
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--align-left custom-searchbar">
+                    <label class="custom-searchbar__plain-label" for="searchbar-input"></label>
+                    <label class="mdl-button mdl-js-button mdl-button--icon custom-searchbar__button" for="searchbar-input">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="custom-searchbar__wrapper">
+                        <div class="custom-input-container">
+                            <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="mdl-textfield__input custom-input-container__input" type="text" name="sample" id="searchbar-input">
+                        </div>
+                        <div class="custom-label-container">
+                            <label class="mdl-textfield__label custom-label-container__label" for="searchbar-input">
+                                Rechercher
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">playlist_play</i>
+                            </button>
+                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">view_module</i>
+                            </button>
+                    <div class="custom-header__menu-separator">
+                        
+                    </div>
+                    <a href="">
+                        <span class="mdl-badge custom-header__badge" data-badge="1"></span>
+                    </a>
+                    <a class="mdl-navigation__link custom-header__user-icon" href=""></a>
+                </nav>
+            </div>
+           
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title custom-sidemenu__title"><strong>Google</strong> Play Music</span>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="album__top-space"></div>
+            <div class="page-content" >
+                <div class="album-container"></div>
+            </div>
+        </main>
+        <footer class="mdl-mini-footer player-bottom-bar">
+            <div class="player-bottom-bar__progress-bar-container">
+                <div class="player-bottom-bar__progress-bar"></div>
+            </div>
+            
+            <div class="player-bottom-bar__main-content">
+                <div class="player-bottom-bar__inner-left-content">
+                    <div class="player-bottom-bar__music-name">
+                        Silver soul
+                    </div>
+                    <div class="player-bottom-bar__music-infos">
+                        Beach house - Teen dream
+                    </div>
+                </div>
+                <div class="player-bottom-bar__inner-middle-content">
+                    <div class="player-main-tools">
+                        <div class="player-main-tools__outside-left-tools">
+                            <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">more_vert</i>
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">thumb_up</i>
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">thumb_down</i>
+                            </button>
+                        </div> 
+                        <div class="player-main-tools__main-tools">
+                            <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">repeat</i>
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">skip_previous</i>
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored
+                                           player-main-tools__playpause-button">
+                                <i class="material-icons">play_arrow</i>
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">skip_next</i>
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">shuffle</i>
+                            </button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="player-bottom-bar__inner-right-content">
+                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">volume_up</i>
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">queue_music</i>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
